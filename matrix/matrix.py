@@ -119,29 +119,43 @@
 #     while currentNode is not None:
 #         print(currentNode.data, end=" ")
 #         currentNode = currentNode.next
+# class Node:
+#     def __init__(self, mydata):
+#         self.data = mydata
+#         self.next = None
+
+# class LinkedList:
+
+#     def __init__(self):
+#         self.head = None
+
+#     def insertFirstPosition(self, mydata):
+#         new_node = Node(mydata)
+#         new_node.next  = self.head
+#         self.head = new_node
+
+#     def traversal(self):
+#         currentNode = self.head
+#         while currentNode is not None:
+#             print(currentNode.data, end=" ")
+#             currentNode = currentNode.next
+# mylist = LinkedList()
+# mylist.insertFirstPosition(10)
+# mylist.insertFirstPosition(20)      
+# mylist.insertFirstPosition(30)
+
+# mylist.traversal()
+#INSERTION AT LAST POSITION
+#INSERTION AT ANY POSITION(NEGATIVE , POSITIVE)
+#delete last node in linked list
 class Node:
-    def __init__(self, mydata):
-        self.data = mydata
-        self.next = None
-
-class LinkedList:
-
-    def __init__(self):
-        self.head = None
-
-    def insertFirstPosition(self, mydata):
-        new_node = Node(mydata)
-        new_node.next  = self.head
-        self.head = new_node
-
-    def traversal(self):
-        currentNode = self.head
-        while currentNode is not None:
-            print(currentNode.data, end=" ")
-            currentNode = currentNode.next
-mylist = LinkedList()
-mylist.insertFirstPosition(10)
-mylist.insertFirstPosition(20)      
-mylist.insertFirstPosition(30)
-
-mylist.traversal()
+    def deleteLastNode(self, head):
+        if head is None:
+            return None
+        if head.next is None:
+            return None
+        current = head
+        while current.next.next is not None:
+            current = current.next
+        current.next = None
+        return head
