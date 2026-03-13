@@ -80,6 +80,35 @@ for i in range(len(matrix)):
         print(matrix[i][j], end=' ')
     print()
 
+n = int(input("Enter number: "))
+fact = 1
+
+for i in range(1, n+1):
+    fact = fact * i
+
+print("Factorial:", fact)
+arr = [10, 20, 30, 40, 50]
+key = 30
+
+for i in range(len(arr)):
+    if arr[i] == key:
+        print("Element found at index", i)
+        break
+def insert_begin(head, data):
+    new_node = Node(data)
+    
+    if head != None:
+        head.prev = new_node
+        new_node.next = head
+        
+    head = new_node
+    return head
+def display(head):
+    temp = head
+    
+    while temp != None:
+        print(temp.data, end=" ")
+        temp = temp.next
 
 
 
