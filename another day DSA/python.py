@@ -110,6 +110,44 @@ def display(head):
         print(temp.data, end=" ")
         temp = temp.next
 
+from collections import deque
+
+class Queue:
+    def __init__(self):
+        self.queue = deque()
+
+    def enqueue(self, item):       # Add to back
+        self.queue.append(item)    # O(1)
+
+    def dequeue(self):             # Remove from front
+        if not self.is_empty():
+            return self.queue.popleft()  # O(1)
+
+    def front(self):               # View front
+        return self.queue[0] if self.queue else None
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+q = Queue()
+q.enqueue('A'); q.enqueue('B'); q.enqueue('C')
+print(q.dequeue())    # → 'A' (first in, first out)
+print(q.dequeue())    # → 'B'
+import heapq
+
+# Min-heap: smallest element has highest priority
+pq = []
+heapq.heappush(pq, (3, 'low priority'))     # (priority, item)
+heapq.heappush(pq, (1, 'high priority'))
+heapq.heappush(pq, (2, 'medium priority'))
+
+while pq:
+    priority, item = heapq.heappop(pq)
+    print(f'Priority {priority}: {item}')
+# Output: 1: high → 2: medium → 3: low
+
+# For max-heap, negate priorities
+heapq.heappush(pq, (-5, 'most important'))
 
 
 
